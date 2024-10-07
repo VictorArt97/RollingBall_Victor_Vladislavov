@@ -5,10 +5,10 @@ using UnityEngine;
 public class COLECCIONABLE : MonoBehaviour
 {
     [SerializeField] Vector3 sentido;
-    [SerializeField] int velodidadRotacion;
+    [SerializeField] float velodidadRotacion;
     [SerializeField] Vector3 direccion ;
  
-    [SerializeField] int velocidad;
+    [SerializeField] float velocidad;
     float timer;
     void Start()
     {
@@ -23,10 +23,8 @@ public class COLECCIONABLE : MonoBehaviour
         transform.Rotate(sentido*velodidadRotacion*Time.deltaTime,Space.World); // , Space.World para que gire en torno al mundo
         if (timer >= 2)
         {
-
             timer = 0;
             direccion *= -1;
-           
         }
     }
 }
