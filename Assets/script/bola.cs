@@ -1,19 +1,27 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class bola : MonoBehaviour
 {
+    // Movimiento de la bola 
     Vector3 direccion;
     [SerializeField] Vector3 direccionSalto;
     [SerializeField] int velocidad;
     [SerializeField] int fuerzaSalto;
     [SerializeField] int fuerzaVelocidad;
     private float h, v;
-
-   [SerializeField] float vida = 100f;
     Rigidbody rb;
-    // Start is called before the first frame update
+    
+    // puntuacion
+    [SerializeField] int puntuacion;
+    [SerializeField] TMP_Text textoPuntuacion;
+
+    // Vida de la bola
+    [SerializeField] float vida = 100f;
+
+
     void Start()
     {
        rb= GetComponent<Rigidbody>();
@@ -21,7 +29,6 @@ public class bola : MonoBehaviour
 
     }
 
-    // Update is called once per frame
     void Update()     ///Ciclo variable 
     {
         // if (Input.GetKeyDown(KeyCode.W)) {
@@ -64,6 +71,7 @@ public class bola : MonoBehaviour
         if (other.gameObject.CompareTag("coleccionable"))
         {
             Destroy(other.gameObject);
+            puntuacion += 10;
         } 
         
         if (other.gameObject.CompareTag("trampa"))
@@ -76,6 +84,8 @@ public class bola : MonoBehaviour
                 Destroy(this.gameObject);        
             }
         }
-        
+
+       
+        textoPuntuacion.SetText("Score: "+puntuacion);
     }
 }
