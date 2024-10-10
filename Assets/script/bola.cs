@@ -18,8 +18,11 @@ public class bola : MonoBehaviour
     [SerializeField] int puntuacion;
     [SerializeField] TMP_Text textoPuntuacion;
 
+    [SerializeField] float distanciaDeteccionSuelo;
     // Vida de la bola
     [SerializeField] float vida = 100f;
+
+    [SerializeField] LayerMask queEsSuelo;
 
 
     void Start()
@@ -47,7 +50,10 @@ public class bola : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space))    
         {
-          rb.AddForce(direccionSalto*fuerzaSalto,ForceMode.Impulse);
+            if (DetectarSuelo() == true)
+            {          
+                rb.AddForce(direccionSalto*fuerzaSalto,ForceMode.Impulse);
+            }
         }
 
        //rb.AddForce(direccion*fuerzaVelocidad,ForceMode.Force);
@@ -56,6 +62,13 @@ public class bola : MonoBehaviour
         //transform.Translate(direccion *velocidad*Time.deltaTime);
 
     }
+
+    bool DetectarSuelo()
+    {
+       bool resultado = Physics.Raycast(transform.position, new Vector3 (0,-1,0),distanciaDeteccionSuelo,queEsSuelo);
+        return resultado;
+    }
+
 
     private void FixedUpdate()   /// FIJO / CONSTANTE se reproduce cada 0,02 segundos (Pensado para fisicas continuas)
     {
@@ -84,8 +97,7 @@ public class bola : MonoBehaviour
                 Destroy(this.gameObject);        
             }
         }
-
-       
+      
         textoPuntuacion.SetText("Score: "+puntuacion);
     }
 }
