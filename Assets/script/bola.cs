@@ -25,6 +25,11 @@ public class bola : MonoBehaviour
     [SerializeField] LayerMask queEsSuelo;
 
 
+    [SerializeField] AudioClip coleccionable;
+    [SerializeField] AudioManager manager;
+
+
+
     void Start()
     {
        rb= GetComponent<Rigidbody>();
@@ -83,6 +88,7 @@ public class bola : MonoBehaviour
         Debug.Log("Atravesado");
         if (other.gameObject.CompareTag("coleccionable"))
         {
+            manager.ReproducirSonido(coleccionable);
             Destroy(other.gameObject);
             puntuacion += 10;
         } 
