@@ -50,7 +50,6 @@ public class bola : MonoBehaviour
         direccion.x = h;
         direccion.z = v;
 
-
         if (Input.GetKeyDown(KeyCode.Space))    
         {
             if (DetectarSuelo() == true)
@@ -60,9 +59,8 @@ public class bola : MonoBehaviour
         }
 
        //rb.AddForce(direccion*fuerzaVelocidad,ForceMode.Force);
-
        // rb.velocity = direccion*Time.deltaTime;                     // este ta mal >:(
-        //transform.Translate(direccion *velocidad*Time.deltaTime);
+       //transform.Translate(direccion *velocidad*Time.deltaTime);
 
     }
 
@@ -74,13 +72,12 @@ public class bola : MonoBehaviour
 
 
     private void FixedUpdate()   /// FIJO / CONSTANTE se reproduce cada 0,02 segundos (Pensado para fisicas continuas)
-    {
-        
+    {       
         rb.AddForce(new Vector3(h,0,v).normalized*fuerzaVelocidad, ForceMode.Force);
     }
 
-
     // se Produce automaticxamente cuando atravesamos un trigger 
+
     private void OnTriggerEnter(Collider other)
     {
         Debug.Log("Atravesado");
@@ -89,19 +86,16 @@ public class bola : MonoBehaviour
             manager.ReproducirSonido(coleccionable);
             Destroy(other.gameObject);
             puntuacion += 10;
-        } 
+        }     
         
         if (other.gameObject.CompareTag("trampa"))
         {
-            vida -= 10;
-       
-            if (vida <= 0)
-     
+            vida -= 10;      
+            if (vida <= 0)    
             {            
                 Destroy(this.gameObject);        
             }
-        }
-      
+        }      
         textoPuntuacion.SetText("Score: "+puntuacion);
     }
 }
