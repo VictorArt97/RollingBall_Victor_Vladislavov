@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4293491043452775560}
   - component: {fileID: 6942231398809677238}
   m_Layer: 0
-  m_Name: cubinchi
+  m_Name: Coleccionable
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

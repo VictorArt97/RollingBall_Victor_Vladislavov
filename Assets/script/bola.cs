@@ -33,17 +33,15 @@ public class bola : MonoBehaviour
     void Start()
     {
        rb= GetComponent<Rigidbody>();
-
-
     }
 
     void Update()     ///Ciclo variable 
     {
         // if (Input.GetKeyDown(KeyCode.W)) {
-        moverse();
+        Moverse();
     }
 
-    void moverse()
+    void Moverse()
     {
         //Rigidbody rb = GetComponent<Rigidbody>();
 
