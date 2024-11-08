@@ -93,9 +93,10 @@ public class bola : MonoBehaviour
             vida -= 1;      
             if (vida <= 0)    
             {            
-                Destroy(this.gameObject);        
+                Destroy(this.gameObject);  
+                
             }
         }      
-        textoPuntuacion.SetText("Score: "+puntuacion);
+        textoPuntuacion.SetText("Monedas: "+puntuacion);
     }
 }
