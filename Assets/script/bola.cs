@@ -105,12 +105,11 @@ public class bola : MonoBehaviour
                 transform.position = posicionInicial;
                 vida = 2;
                 velocidad = 0;
-                SceneManager.LoadScene(2);
-
-
-
+                //pantallaDeMuerte();
             }
         }      
         textoPuntuacion.SetText("Monedas: "+puntuacion);
     }
+
+    
 }
