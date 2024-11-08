@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 public class bola : MonoBehaviour
 {
@@ -9,7 +11,8 @@ public class bola : MonoBehaviour
     Vector3 direccion;
     [SerializeField] Vector3 direccionSalto;
     [SerializeField] int velocidad;
-    [SerializeField] int fuerzaSalto;
+    [SerializeField] int velocidadInicio;
+    [SerializeField] float fuerzaSalto;
     [SerializeField] int fuerzaVelocidad;
     private float h, v;
     Rigidbody rb;
@@ -17,28 +20,33 @@ public class bola : MonoBehaviour
     // puntuacion
     [SerializeField] int puntuacion;
     [SerializeField] TMP_Text textoPuntuacion;
+    [SerializeField] TMP_Text texto_Vidas;
 
     [SerializeField] float distanciaDeteccionSuelo;
     // Vida de la bola
-    [SerializeField] float vida = 100f;
+    [SerializeField] float vida;
+
+    Vector3 posicionInicial;
 
     [SerializeField] LayerMask queEsSuelo;
-
-
     [SerializeField] AudioClip coleccionable;
     [SerializeField] AudioManager manager;
 
 
 
+
     void Start()
     {
+        velocidad = 0;
        rb= GetComponent<Rigidbody>();
+        posicionInicial = transform.position;
     }
 
     void Update()     ///Ciclo variable 
     {
-        // if (Input.GetKeyDown(KeyCode.W)) {
+        // if (Input.GetKeyDown(KeyCode.W)) 
         Moverse();
+        texto_Vidas.SetText("Vidas: "+vida);
     }
 
     void Moverse()
@@ -85,16 +93,22 @@ public class bola : MonoBehaviour
         {
             manager.ReproducirSonido(coleccionable);
             Destroy(other.gameObject);
-            puntuacion += 10;
+            puntuacion += 1;
         }     
         
         if (other.gameObject.CompareTag("trampa"))
         {
             vida -= 1;      
             if (vida <= 0)    
-            {            
-                Destroy(this.gameObject);  
-                
+            {
+                //Destroy(this.gameObject);  
+                transform.position = posicionInicial;
+                vida = 2;
+                velocidad = 0;
+                SceneManager.LoadScene(2);
+
+
+
             }
         }      
         textoPuntuacion.SetText("Monedas: "+puntuacion);
