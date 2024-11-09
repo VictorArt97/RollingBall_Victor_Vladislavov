@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -17,7 +18,7 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         timer += 1 * Time.deltaTime;
-        texto_Timer.SetText("Time: " + timer);
+        texto_Timer.SetText("Time: " + timer.ToString("f0"));
 
     }
 }

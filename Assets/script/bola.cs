@@ -104,7 +104,12 @@ public class bola : MonoBehaviour
                 //Destroy(this.gameObject);  
                 transform.position = posicionInicial;
                 vida = 2;
-                velocidad = 0;
+                rb.velocity = Vector3.zero;
+                rb.MovePosition(posicionInicial);
+                rb.useGravity = true;
+                SceneManager.LoadScene(2);
+
+
                 //pantallaDeMuerte();
             }
         }

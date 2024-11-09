@@ -15,10 +15,5 @@ public class RodilloGolpeador : MonoBehaviour
         rb.AddTorque(direccion*fuerza, ForceMode.VelocityChange);
     }
 
-    void Update()
-    {
-      
-        
-
-    }
+ 
 }
