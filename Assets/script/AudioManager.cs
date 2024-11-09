@@ -16,7 +16,7 @@ public class AudioManager : MonoBehaviour
     {
        if (other.gameObject.CompareTag("colecionable"))
        {
-
-       }
+            //sfx.PlayOneShot(SONIDO_MONEDA);
+        }
     }
 }

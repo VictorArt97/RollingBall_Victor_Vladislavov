@@ -14,7 +14,6 @@ public class COLECCIONABLE : MonoBehaviour
     {
         
     }
-
     
     void Update()
     {

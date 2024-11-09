@@ -107,8 +107,8 @@ public class bola : MonoBehaviour
                 velocidad = 0;
                 //pantallaDeMuerte();
             }
-        }      
-        textoPuntuacion.SetText("Monedas: "+puntuacion);
+        }
+        textoPuntuacion.SetText("Monedas: " + puntuacion);
     }
 
     

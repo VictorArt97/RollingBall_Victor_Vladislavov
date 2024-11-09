@@ -6,10 +6,7 @@ public class RodilloGolpeador : MonoBehaviour
 {
     
     [SerializeField] Vector3 direccion;
-    [SerializeField] int fuerza;
-
-    [SerializeField] float velocidad;
-    float timer;
+    [SerializeField] float fuerza;  
     Rigidbody rb;
 
     void Start()
@@ -20,14 +17,7 @@ public class RodilloGolpeador : MonoBehaviour
 
     void Update()
     {
-        //timer += 1 * Time.deltaTime;
-        //transform.Translate(direccion * velocidad * Time.deltaTime);
-        //transform.Rotate(sentido * velodidadRotacion * Time.deltaTime, Space.World); // , Space.World para que gire en torno al mundo
-        //if (timer >= 2)
-        //{
-        //    timer = 0;
-        //    direccion *= -1;
-        //}
+      
         
 
     }
