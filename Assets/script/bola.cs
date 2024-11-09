@@ -10,7 +10,7 @@ public class bola : MonoBehaviour
     // Movimiento de la bola 
     Vector3 direccion;
     [SerializeField] Vector3 direccionSalto;
-    [SerializeField] int velocidad;
+  //  [SerializeField] int velocidad;
     [SerializeField] int velocidadInicio;
     [SerializeField] float fuerzaSalto;
     [SerializeField] int fuerzaVelocidad;
@@ -18,13 +18,14 @@ public class bola : MonoBehaviour
     Rigidbody rb;
     
     // puntuacion
-    [SerializeField] int puntuacion;
+    int puntuacion;
     [SerializeField] TMP_Text textoPuntuacion;
     [SerializeField] TMP_Text texto_Vidas;
 
     [SerializeField] float distanciaDeteccionSuelo;
     // Vida de la bola
     [SerializeField] float vida;
+    float vidaInicial;
 
     Vector3 posicionInicial;
 
@@ -37,7 +38,8 @@ public class bola : MonoBehaviour
 
     void Start()
     {
-        velocidad = 0;
+        vidaInicial = vida;
+        
        rb= GetComponent<Rigidbody>();
         posicionInicial = transform.position;
     }
@@ -103,7 +105,7 @@ public class bola : MonoBehaviour
             {
                 //Destroy(this.gameObject);  
                 transform.position = posicionInicial;
-                vida = 2;
+                vida = vidaInicial;
                 rb.velocity = Vector3.zero;
                 rb.MovePosition(posicionInicial);
                 rb.useGravity = true;
@@ -114,7 +116,14 @@ public class bola : MonoBehaviour
             }
         }
         textoPuntuacion.SetText("Monedas: " + puntuacion);
+       
+        if (other.gameObject.CompareTag("Finish"))
+        {
+            SceneManager.LoadScene(3);
+
+        }
     }
+    
 
     
 }

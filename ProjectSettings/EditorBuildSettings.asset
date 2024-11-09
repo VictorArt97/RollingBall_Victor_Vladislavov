@@ -15,6 +15,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Escena_Muerte.unity
     guid: 3413829098de07c44afc8a7151bf087d
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 99c9720ab356a0642a771bea13969a05
+    path: Assets/Scenes/Escena_Final_Juego.unity
+    guid: b66409065397d894596e60b2ecaf25c6
   m_configObjects: {}

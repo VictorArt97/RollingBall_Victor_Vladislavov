@@ -7,6 +7,10 @@ public class CambiaCamara : MonoBehaviour
     [SerializeField] private GameObject cam1;
     [SerializeField] private GameObject camCenital;
 
+    public void Start()
+    {
+        camCenital .SetActive(false);
+    }
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))

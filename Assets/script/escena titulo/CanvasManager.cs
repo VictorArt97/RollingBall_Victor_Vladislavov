@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class CanvasManager : MonoBehaviour
 {
-    
+   
     public void EmpezarPartid()
     {
         Time.timeScale = 1;
