@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using UnityEditor;
 using UnityEngine;
+using UnityEngine.Rendering;
 using UnityEngine.SceneManagement;
 
 
@@ -33,6 +35,8 @@ public class bola : MonoBehaviour
     [SerializeField] AudioClip coleccionable;
     [SerializeField] AudioManager manager;
 
+
+ 
 
 
 
@@ -100,7 +104,7 @@ public class bola : MonoBehaviour
         
         if (other.gameObject.CompareTag("trampa"))
         {
-            vida -= 1;      
+            vida -= 1;
             if (vida <= 0)    
             {
                 //Destroy(this.gameObject);  

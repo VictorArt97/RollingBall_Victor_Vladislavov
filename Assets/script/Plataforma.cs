@@ -10,6 +10,7 @@ public class Plataforma : MonoBehaviour
     float timer;
 
 
+
     void Start()
     {
         
@@ -18,10 +19,12 @@ public class Plataforma : MonoBehaviour
     void Update()
     {
         timer += 1 * Time.deltaTime;
+       
+
         transform.Translate(direccion * velocidad * Time.deltaTime);
-        if (timer >=5)
+        if (timer >= 2)
         {
-           
+
             timer = 0;
             direccion *= -1;
         }

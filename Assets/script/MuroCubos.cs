@@ -37,6 +37,7 @@ public class MuroCubos : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             Time.timeScale = 0.5f;
+            
         }
     }
 }

@@ -20,12 +20,14 @@ public class CambiaCamara : MonoBehaviour
             {           
                 cam1.SetActive(false);           
                 camCenital.SetActive(true);
+                
             } 
             
             else
             {           
                 cam1.SetActive(true);           
                 camCenital.SetActive(false);
+                
             }
         }
     }
